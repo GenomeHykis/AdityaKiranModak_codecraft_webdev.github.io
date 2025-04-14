@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register - Code Quest 2025</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="images/converted_logo.webp" alt="Code Quest Logo" />
+            </div>
+            <input type="checkbox" id="menu-toggle" />
+            <label for="menu-toggle" class="menu-icon">&#9776;</label>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="venue.html">Venue</a></li>
+                <li><a href="schedule.html">Schedule</a></li>
+                <li><a href="rules.html">Rules & Eligibility</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="hero">
+        <div class="hero-text">
+            <h1>REGISTER</h1>
+
+            <form class="register-form" onsubmit="return handleSubmit(event)">
+                <input type="text" name="name" placeholder="Name" required />
+                <input type="text" name="contact" placeholder="Contact" required />
+                <input type="text" name="address" placeholder="Address" required />
+                <button type="submit">SUBMIT</button>
+            </form>
+            <div id="success-message" style="display: none; color: white; font-size: 1.5rem; margin-top: 20px;">
+                🎉 Registration successful! See you at the event.
+              </div>
+              
+        </div>
+    </main>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault(); // Stop form from submitting
+
+            const form = event.target;
+            const name = form.name.value.trim();
+            const contact = form.contact.value.trim();
+            const address = form.address.value.trim();
+            const successMessage = document.getElementById("success-message");
+
+            if (name && contact && address) {
+                form.style.display = "none"; // Hide the form
+                successMessage.style.display = "block"; // Show success message
+            } else {
+                alert("Please fill in all fields.");
+            }
+
+            return false;
+        }
+    </script>
+
+</body>
+
+</html>
